@@ -1,0 +1,10 @@
+/dags/__pycache__
+/dags/data/*
+/logs
+/plugins
+/venv
+/terraform/.terraform
+/terraform/.terraform.lock.hcl
+/src/etl_data/parquets/*
+/src/etl_data/parquets_processed/*
+/src/etl_data/dags/*

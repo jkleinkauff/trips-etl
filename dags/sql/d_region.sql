@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS d_region CASCADE;
+CREATE TABLE d_region (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    region_name VARCHAR(50),
+    PRIMARY KEY(id)
+)

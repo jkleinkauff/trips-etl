@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS d_datasource CASCADE;
+CREATE TABLE d_datasource (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    datasource VARCHAR(51),
+    PRIMARY KEY(id)
+);
