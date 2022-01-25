@@ -7,6 +7,7 @@ DATA_DIR="/.../<cloned-dir>/src/etl_data"
 DAGS_DIR="/.../<cloned-dir>/dags/data"
 ```
 
+Execute the following commands:
 ```
 make build
 make build-up
@@ -30,3 +31,21 @@ aeefa7a99c4e   postgres:10                  "docker-entrypoint.s…"   14 hours 
 
 ```
 
+Airflow UI:
+
+etl-dm-ddl-dag: should be executed just one time, then it could be turned off
+
+etl-ingestion-dag:
+
+    schedule internal: every 15 minutes
+    keep on
+
+etl-process-ingested-dag:
+
+    schedule internal: every 30 minutes
+    keep on
+
+etl-load-dm-dag:
+
+    schedule internal: every 60 minutes
+    keep on
