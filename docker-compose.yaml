@@ -33,6 +33,8 @@ services:
   db_app:
     image: postgres
     restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
@@ -43,6 +45,8 @@ services:
       - 5433:5432
   postgres:
     image: postgres:13
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -70,6 +74,8 @@ services:
     <<: *airflow-common
     command: webserver
     user: root
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - 8080:8080
     healthcheck:
@@ -82,6 +88,8 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     restart: always
     user: root
 
@@ -89,11 +97,15 @@ services:
     <<: *airflow-common
     command: celery worker
     restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     user: root
 
   airflow-init:
     <<: *airflow-common
     command: version
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       <<: *airflow-common-env
       _AIRFLOW_DB_UPGRADE: 'true'
