@@ -31,6 +31,12 @@ aeefa7a99c4e   postgres:10                  "docker-entrypoint.s…"   14 hours 
 
 ```
 
+
+
+Airflow:    localhost:8080 - airflow@airflow
+Superset:   localhost:8088 - admin@admin
+
+
 Airflow UI:
 
 etl-dm-ddl-dag: should be executed just one time, then it could be turned off
